@@ -63,9 +63,10 @@ function App() {
         </button>
       </div>
 
-      {activeSection !== "hero" && activeSection !== "footer" && (
+      {activeSection === "about" || activeSection === "projects" ? (
         <SideNav activeSection={activeSection} language={language} />
-      )}
+      ) : null}
+
 
       <Hero language={language} />
       <About language={language} />
