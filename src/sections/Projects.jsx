@@ -5,7 +5,7 @@ import projectImg from "../assets/projects.jpeg"
 export default function Projects({ language = "vi" }) {
   const content = {
     vi: {
-      title: "PROJECTS",
+      title: "DỰ ÁN",
       subtitle: "DỰ ÁN ĐÃ THAM GIA",
       p1Title: "PHUCGG.ID.VN",
       p1Desc1: "Website portfolio cá nhân do tôi xây dựng.",
