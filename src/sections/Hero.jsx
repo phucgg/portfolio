@@ -1,4 +1,9 @@
 import { motion } from "framer-motion"
+import bg from "../assets/bg.jpeg"
+import avatar from "../assets/avatar.jpg"
+import viteLogo from "../assets/vite.png"
+import reactLogo from "../assets/react.png"
+import arrow from "../assets/arrow.png"
 
 export default function Hero({ language }) {
   const content = {
@@ -19,44 +24,28 @@ export default function Hero({ language }) {
   const t = content[language] || content.vi
 
   return (
-    <section
-      id="hero"
-      className="h-screen snap-start relative overflow-hidden flex items-center justify-center"
-    >
-      {/* ===== BACKGROUND ===== */}
+    <section className="h-screen snap-start relative overflow-hidden flex items-center justify-center">
+      
       <img
-        src="/bg.jpeg"
+        src={bg}
         alt="background"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Dark overlay + blur */}
       <div className="absolute inset-0 bg-black/75 backdrop-blur-[2px]" />
 
-      {/* ===== TOP LEFT ICONS ===== */}
       <div className="absolute top-6 left-6 flex items-center gap-3 z-20">
-        <img src="/vite.png" className="w-7" alt="vite" />
+        <img src={viteLogo} className="w-7" alt="vite" />
         <span className="text-white text-xl font-bold">×</span>
-        <img src="/react.png" className="w-8" alt="react" />
+        <img src={reactLogo} className="w-8" alt="react" />
       </div>
 
-      {/* ===== MAIN TEXT ===== */}
       <div className="relative z-10 text-center px-6">
         <motion.h1
           initial={{ opacity: 0, y: 80 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="
-            text-5xl md:text-8xl lg:text-9xl
-            font-extrabold italic
-            tracking-wide
-            text-white
-            drop-shadow-[0_0_20px_rgba(110,231,255,0.9)]
-          "
-          style={{
-            textShadow:
-              "0 0 20px rgba(110,231,255,0.9), 0 0 40px rgba(110,231,255,0.7)",
-          }}
+          className="text-5xl md:text-8xl lg:text-9xl font-extrabold italic text-white"
         >
           {t.title}
         </motion.h1>
@@ -71,21 +60,18 @@ export default function Hero({ language }) {
         </motion.p>
       </div>
 
-      {/* ===== AVATAR BOTTOM LEFT ===== */}
       <div className="absolute bottom-8 left-8 flex items-center gap-4 z-20">
         <img
-          src="/avatar.jpg"
+          src={avatar}
           alt="avatar"
           className="w-14 h-14 rounded-full object-cover border-2 border-white/40"
         />
-
         <div className="text-white text-sm">
           <p className="opacity-60">{t.prepared}</p>
           <p className="font-semibold">PhucGG</p>
         </div>
       </div>
 
-      {/* ===== SCROLL INDICATOR ===== */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -97,20 +83,14 @@ export default function Hero({ language }) {
           })
         }
       >
-        <p className="text-sm text-white/70 tracking-wide">
-          {t.scroll}
-        </p>
+        <p className="text-sm text-white/70">{t.scroll}</p>
 
         <motion.img
-          src="public/arrow.png"
+          src={arrow}
           alt="scroll"
           className="w-8"
           animate={{ y: [0, 8, 0] }}
-          transition={{
-            duration: 1.6,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 1.6, repeat: Infinity }}
         />
       </motion.div>
     </section>
